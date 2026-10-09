@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BK Crown Cam</title>
+<meta name="theme-color" content="#e4002b">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:system-ui, sans-serif; background:#111; color:#fff; min-height:100dvh;
+         display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:16px; }
+  video, canvas, img.preview { max-width:100%; max-height:70dvh; border-radius:8px; }
+  button { font-size:1rem; padding:12px 24px; border:0; border-radius:8px; background:#e4002b; color:#fff; cursor:pointer; }
+  button:disabled { opacity:.5; }
+  button.ghost { background:#333; }
+  #preview img { display:block; }
+  h1 { font-size:1.2rem; text-transform:uppercase; letter-spacing:.05em; }
+  .hint { color:#999; font-size:.9rem; }
+</style>
+</head>
+<body>
+<h1>BK Crown Cam</h1>
+<video id="video" autoplay playsinline hidden></video>
+<img id="shot" class="preview" hidden alt="captured photo">
+<canvas id="output" hidden></canvas>
+<div>
+  <button id="cam">Open camera</button>
+  <button id="snap" hidden>Take photo</button>
+  <button id="save" hidden disabled>Save photo</button>
+  <button id="again" class="ghost" hidden>Retake</button>
+</div>
+<p class="hint">Take a photo of someone. The crown lands on the top of their head. Tap a face to move the crown.</p>
+<script type="module" src="app.js"></script>
+</body>
+</html>
